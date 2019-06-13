@@ -37,13 +37,13 @@ public class OurPriorityQueue implements Runnable {
         while (true) {
             Person aux = null;
             if (!queue.get(0).isEmpty()) {
-                queue.get(0).poll();
+                aux=queue.get(0).poll();
                 continue;
             } else if (!queue.get(0).isEmpty()) {
-                queue.get(0).poll();
+                aux=queue.get(0).poll();
                 continue;
             } else if (!queue.get(0).isEmpty()) {
-                queue.get(0).poll();
+                aux=queue.get(0).poll();
                 continue;
             }
             System.out.println(aux);
