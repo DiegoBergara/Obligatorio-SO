@@ -28,8 +28,8 @@ public class OurPriorityQueue implements Runnable {
         queue.get(person.getPriority()).add(person);
     }
 
-    public void getByPriority(int priority) {
-        queue.get(priority).poll();
+    public Person getByPriority(int priority) {
+        return queue.get(priority).poll();
     }
 
     @Override
@@ -37,13 +37,16 @@ public class OurPriorityQueue implements Runnable {
         while (true) {
             Person aux = null;
             if (!queue.get(0).isEmpty()) {
-                aux=queue.get(0).poll();
+                aux=this.getByPriority(0);
+                System.out.println(aux);
                 continue;
-            } else if (!queue.get(0).isEmpty()) {
-                aux=queue.get(0).poll();
+            } else if (!queue.get(1).isEmpty()) {
+                aux=this.getByPriority(1);
+                System.out.println(aux);
                 continue;
-            } else if (!queue.get(0).isEmpty()) {
-                aux=queue.get(0).poll();
+            } else if (!queue.get(2).isEmpty()) {
+                aux=this.getByPriority(2);
+                System.out.println(aux);
                 continue;
             }
             System.out.println(aux);
