@@ -34,22 +34,25 @@ public class OurPriorityQueue implements Runnable {
 
     @Override
     public void run() {
+        
+        int counter = 0;
+        int counter2 = 0;
         while (true) {
-            Person aux = null;
-            if (!queue.get(0).isEmpty()) {
+            Person aux= null;
+            if (!queue.get(0).isEmpty() && counter<5) {
                 aux=this.getByPriority(0);
                 System.out.println(aux);
-                continue;
-            } else if (!queue.get(1).isEmpty()) {
+                counter++;
+            } else if (!queue.get(1).isEmpty() && counter>=5) {
                 aux=this.getByPriority(1);
                 System.out.println(aux);
-                continue;
-            } else if (!queue.get(2).isEmpty()) {
+                counter2++;
+                counter=0;
+            } else if (!queue.get(2).isEmpty() && counter2>=5) {
                 aux=this.getByPriority(2);
                 System.out.println(aux);
-                continue;
+                counter2=0;
             }
-            System.out.println(aux);
         }
     }
 
