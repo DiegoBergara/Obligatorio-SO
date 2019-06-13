@@ -37,22 +37,35 @@ public class OurPriorityQueue implements Runnable {
         
         int counter = 0;
         int counter2 = 0;
+        boolean pass = false;
+        boolean pass2 = false;
         while (true) {
-            Person aux= null;
-            if (!queue.get(0).isEmpty() && counter<5) {
-                aux=this.getByPriority(0);
-                System.out.println(aux);
-                counter++;
-            } else if (!queue.get(1).isEmpty() && counter>=5) {
-                aux=this.getByPriority(1);
-                System.out.println(aux);
+            if(counter==3){
+                pass=true;
                 counter2++;
                 counter=0;
-            } else if (!queue.get(2).isEmpty() && counter2>=5) {
-                aux=this.getByPriority(2);
-                System.out.println(aux);
+            }
+            if(counter2==3){
+                pass2=true;
                 counter2=0;
             }
+            
+            
+            Person aux= null;
+            if (!queue.get(0).isEmpty() && !pass) {
+                aux=this.getByPriority(0);
+                System.out.println(aux);
+            } else if (!queue.get(1).isEmpty() && pass && !pass2) {
+                aux=this.getByPriority(1);
+                System.out.println(aux);
+                counter=0;
+            } else if (!queue.get(2).isEmpty() && pass2) {
+                aux=this.getByPriority(2);
+                System.out.println(aux);
+            }
+            counter++;
+            pass=false;
+            pass2=false;
         }
     }
 
